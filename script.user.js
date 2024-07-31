@@ -194,35 +194,7 @@ function createLayout() {
   container.appendChild(promoLink)
   document.body.appendChild(container)
 
-  startBtn.addEventListener('click', runAudio)
-  function runAudio() {
-    startBtn.removeEventListener('click', runAudio)
-    const audio = new Audio('https://Skriptex05.github.io/k/ICU%20-%20CrackMe%20v0.2.mp3')
-    audio.loop = true
-    function switchAudio() {
-      if (audio.paused) {
-        musicBtn.innerText = '🔊'
-        audio.play()
-        GM_setValue('sound', true)
-      } else {
-        musicBtn.innerText = '🔇'
-        audio.pause()
-        GM_setValue('sound', false)
-      }
-    }
-
-    const soundOn = GM_getValue('sound', true)
-    musicBtn.innerText = soundOn ? '🔊' : '🔇'
-    if (soundOn) {
-      switchAudio()
-    }
-    musicBtn.onclick = switchAudio
-    container.appendChild(musicBtn)
-  }
-  return { keyText, startBtn, copyBtn, nextBtn, buttons }
-}
-
-
+  
 function delayRandom() {
   return (Math.random()/3 + 1)
 }
